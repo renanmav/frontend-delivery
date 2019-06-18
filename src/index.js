@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './styles/reset.css';
 
-import Orders from './pages/Orders';
+import Login from './pages/Login';
 
-ReactDOM.render(<Orders />, document.getElementById('root'));
+ReactDOM.render(<Login />, document.getElementById('root'));
