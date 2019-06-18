@@ -1,9 +1,9 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import logo from '../../assets/logo.png';
+import logo from '~/assets/logo.png';
 
-import { colors } from '../../styles';
+import { colors } from '~/styles';
 
 const Container = styled.div`
   width: 100%;
