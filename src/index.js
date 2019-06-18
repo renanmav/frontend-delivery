@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './styles/reset.css';
 
-import Login from './pages/Login';
+import Routes from './routes';
 
-ReactDOM.render(<Login />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
