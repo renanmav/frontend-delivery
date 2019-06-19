@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Types as AuthActions } from '~/store/ducks/auth';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { Spinner } from 'react-activity';
 import { Background, AuthWrapper } from './styles';
 
 import logo from '~/assets/logo.png';
+import { colors } from '~/styles';
+
+import 'react-activity/dist/react-activity.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { loading } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
@@ -41,7 +47,9 @@ export default function Login() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button type="submit">Entrar</button>
+          <button type="submit">
+            {loading ? <Spinner color={colors.white} size={10} /> : 'Entrar'}
+          </button>
         </form>
       </AuthWrapper>
       <ToastContainer autoClose={3000} />
