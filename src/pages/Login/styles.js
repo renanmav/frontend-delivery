@@ -5,7 +5,11 @@ import { colors, metrics } from '~/styles';
 import fundo from '~/assets/fundo.jpg';
 
 export const Background = styled.div`
-  background-image: linear-gradient(to bottom, ${colors.transparent}, ${colors.black}),
+  background-image: linear-gradient(
+      to bottom,
+      ${colors.transparent},
+      ${colors.black}
+    ),
     url(${fundo});
   height: 100%;
   width: 100%;

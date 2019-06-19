@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export const Types = {
   LOGIN_REQUEST: 'auth/LOGIN_REQUEST',
   LOGIN_SUCCESS: 'auth/LOGIN_SUCCESS',
@@ -25,6 +27,7 @@ export default function auth(state = INITIAL_STATE, action) {
         user: action.payload.user,
       };
     case Types.LOGIN_FAILURE:
+      toast.warn(action.payload.message);
       return {
         ...state,
         loading: false,

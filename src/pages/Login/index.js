@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Types as AuthActions } from '~/store/ducks/auth';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Background, AuthWrapper } from './styles';
 
 import logo from '~/assets/logo.png';
@@ -41,6 +44,7 @@ export default function Login() {
           <button type="submit">Entrar</button>
         </form>
       </AuthWrapper>
+      <ToastContainer autoClose={3000} />
     </Background>
   );
 }
