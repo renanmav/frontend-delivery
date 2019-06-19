@@ -21,6 +21,8 @@ export default function auth(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
+        token: action.payload.token,
+        user: action.payload.user,
       };
     case Types.LOGIN_FAILURE:
       return {
@@ -36,5 +38,9 @@ export const Creators = {
   loginSuccess: (token, user) => ({
     type: Types.LOGIN_SUCCESS,
     payload: { token, user },
+  }),
+  loginFailure: message => ({
+    type: Types.LOGIN_FAILURE,
+    payload: { message },
   }),
 };
