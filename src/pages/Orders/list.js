@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Types as OrderActions } from '~/store/ducks/order';
+
+import LoadingBar from 'react-redux-loading-bar';
 
 import pizza from '~/assets/pizza.png';
 
@@ -7,8 +11,17 @@ import {
 } from './styles';
 
 export default function ListOrders() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: OrderActions.INDEX_REQUEST,
+    });
+  }, []);
+
   return (
     <ListWrapper>
+      <LoadingBar />
       <List>
         <h4>Últimos pedidos</h4>
         <Order>
