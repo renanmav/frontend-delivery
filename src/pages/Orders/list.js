@@ -10,6 +10,8 @@ import {
   ListWrapper, List, Order, Product,
 } from './styles';
 
+import { baseURL } from '~/services/api';
+
 export default function ListOrders() {
   const { orders } = useSelector(state => state.order);
 
@@ -44,7 +46,7 @@ export default function ListOrders() {
                 // eslint-disable-next-line react/no-array-index-key
                 <Product key={index}>
                   <img
-                    src={`http://localhost:8080/files?id=${
+                    src={`${baseURL}/files?id=${
                       size.product.file_id
                     }`}
                     alt="produto"
@@ -66,30 +68,3 @@ export default function ListOrders() {
     </ListWrapper>
   );
 }
-
-/**
- *  <Order>
-          <div id="info">
-            <p>
-              {'Pedido '}
-              <strong>#3</strong>
-              {' - Renan Machado'}
-            </p>
-            <span>há 2 segundos</span>
-            <strong>R$ 42,00</strong>
-          </div>
-          <div id="produtos">
-            <Product>
-              <img src={pizza} alt="produto" />
-              <div>
-                <p>Pizza calabresa</p>
-                <span>Tamanho: Média</span>
-              </div>
-            </Product>
-          </div>
-          <p id="obs">
-            <strong>Observações:</strong>
-            {' '}
-          </p>
-        </Order>
- */
