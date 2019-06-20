@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Types as AuthActions } from '~/store/ducks/auth';
 
 import logo from '~/assets/logo.png';
@@ -7,6 +7,8 @@ import logo from '~/assets/logo.png';
 import { Container, ContentWrapper } from './styles';
 
 export default function Header() {
+  const { name } = useSelector(state => state.auth.user);
+
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -25,7 +27,7 @@ export default function Header() {
           <h1>Pizzaria Don Juan</h1>
         </div>
         <div>
-          <h2>Renan Machado</h2>
+          <h2>{name}</h2>
           <a href="/" onClick={handleLogout}>
             Sair do app
           </a>
