@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Types as OrderActions } from '~/store/ducks/order';
 
 import LoadingBar from 'react-redux-loading-bar';
-
-import pizza from '~/assets/pizza.png';
 
 import {
   ListWrapper, List, Order, Product,
 } from './styles';
 
 export default function ListOrders() {
+  const { orders } = useSelector(state => state.order);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +24,26 @@ export default function ListOrders() {
       <LoadingBar />
       <List>
         <h4>Últimos pedidos</h4>
-        <Order>
+        {orders.map(order => (
+          <Order>
+            <div id="info">
+              <p>
+                {'Pedido '}
+                <strong>{`#${order.id}`}</strong>
+                {` - ${order.user.name}`}
+              </p>
+              <span>há 2 segundos</span>
+              <strong>{order.total_price}</strong>
+            </div>
+          </Order>
+        ))}
+      </List>
+    </ListWrapper>
+  );
+}
+
+/**
+ *  <Order>
           <div id="info">
             <p>
               {'Pedido '}
@@ -48,7 +67,4 @@ export default function ListOrders() {
             {' '}
           </p>
         </Order>
-      </List>
-    </ListWrapper>
-  );
-}
+ */
