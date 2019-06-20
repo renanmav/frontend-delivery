@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export const Types = {
   INDEX_REQUEST: 'order/INDEX_REQUEST',
   INDEX_SUCCESS: 'order/INDEX_SUCCESS',
@@ -17,6 +19,7 @@ export default function Order(state = INITIAL_STATE, action) {
         orders: action.payload.orders,
       };
     case Types.INDEX_FAILURE:
+      toast.warn(action.payload.message);
       return {
         ...state,
         message: action.payload.message,
