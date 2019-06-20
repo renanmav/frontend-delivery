@@ -34,7 +34,7 @@ export default function ListOrders() {
                 <strong>{`#${order.id}`}</strong>
                 {` - ${order.user.name}`}
               </p>
-              <span>há 2 segundos</span>
+              <span>{`há ${order.from_now}`}</span>
               <strong>
                 <Currency quantity={order.total_price} currency="BRL" />
               </strong>
